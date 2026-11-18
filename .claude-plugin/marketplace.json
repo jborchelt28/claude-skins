@@ -1,0 +1,5 @@
+{
+  "name": "claude-skins",
+  "owner": { "name": "jborchelt28" },
+  "plugins": [{ "name": "digital-rain", "source": "./" }]
+}
