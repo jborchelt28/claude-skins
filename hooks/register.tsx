@@ -31,7 +31,8 @@ const { theme, problems } = makeColors({
 
 const LOOK: ThemeSetArgs = {
   colors: theme,
-  backdrop: { scene: 'rain', glass: { blur: 10, tint: '#020a05', opacity: 0.72 } },
+  // The desktop app veils the chat column with this glass, so a heavy veil hides the rain.
+  backdrop: { scene: 'rain', glass: { blur: 4, tint: '#020a05', opacity: 0.5 } },
 }
 
 export const register: Register = on => {
@@ -54,7 +55,9 @@ export const register: Register = on => {
     if (e.surface !== 'desktop' && e.surface !== 'mobile') {
       return next(e)
     }
-    if (e.props.plugin !== 'digital-rain' || e.props.scene !== 'rain') {
+    const ours = e.props.plugin === 'digital-rain' || e.props.plugin.startsWith('digital-rain@')
+
+    if (!ours || e.props.scene !== 'rain') {
       return next(e)
     }
     const { Svg } = $.ui.resolve(e)
