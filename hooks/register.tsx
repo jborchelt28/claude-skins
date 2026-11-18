@@ -29,10 +29,14 @@ const { theme, problems } = makeColors({
   },
 })
 
+// The Backdrop hook knows its own scene by this name alone. It doesn't read
+// `e.props.plugin`: an installed copy can report another id, and then nothing drew.
+const SCENE_NAME = 'digital-rain'
+
 const LOOK: ThemeSetArgs = {
   colors: theme,
   // The desktop app veils the chat column with this glass, so a heavy veil hides the rain.
-  backdrop: { scene: 'rain', glass: { blur: 4, tint: '#020a05', opacity: 0.5 } },
+  backdrop: { scene: SCENE_NAME, glass: { blur: 4, tint: '#020a05', opacity: 0.5 } },
 }
 
 export const register: Register = on => {
@@ -55,9 +59,7 @@ export const register: Register = on => {
     if (e.surface !== 'desktop' && e.surface !== 'mobile') {
       return next(e)
     }
-    const ours = e.props.plugin === 'digital-rain' || e.props.plugin.startsWith('digital-rain@')
-
-    if (!ours || e.props.scene !== 'rain') {
+    if (e.props.scene !== SCENE_NAME) {
       return next(e)
     }
     const { Svg } = $.ui.resolve(e)

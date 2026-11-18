@@ -32,3 +32,4 @@ This repository is public, so anyone can install the skin. No GitHub account or 
 - `hooks/register.tsx`: sets the theme at session start and draws the backdrop.
 - `hooks/scene.ts`: the generated SVG rain scene.
 - `hooks/make-colors.js`: builds the full palette from a few colors.
+- `hooks/backdrop.test.tsx`: checks the rain draws on desktop and mobile. Run `claude plugin test .`
