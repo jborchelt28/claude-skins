@@ -25,7 +25,7 @@ claude plugin install digital-rain --marketplace jborchelt28/claude-skins
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `jborchelt28/claude-skins`, then Add plugin.
 
-This repository is private. Installing works only for people who can read it on GitHub and whose machine already holds a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`). The install never prompts for one.
+This repository is public, so anyone can install the skin. No GitHub account or sign-in is needed.
 
 ## Files
 
