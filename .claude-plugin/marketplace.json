@@ -1,5 +1,6 @@
 {
   "name": "claude-skins",
+  "description": "Skins for the Claude desktop and mobile apps.",
   "owner": { "name": "jborchelt28" },
   "plugins": [{ "name": "digital-rain", "source": "./" }]
 }
